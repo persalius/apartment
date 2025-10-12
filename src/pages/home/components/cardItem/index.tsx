@@ -33,6 +33,8 @@ const bedroomsMap: { [key: number]: string } = {
 };
 
 const CardItem = ({ apartment }: Props) => {
+  if (!apartment) return null;
+
   const {
     shortleDescription,
     address,
@@ -40,7 +42,7 @@ const CardItem = ({ apartment }: Props) => {
     area,
     isCombinedBathroom,
     bedrooms,
-  } = apartment || {};
+  } = apartment;
 
   return (
     <Card className="p-0 overflow-auto group gap-0">
