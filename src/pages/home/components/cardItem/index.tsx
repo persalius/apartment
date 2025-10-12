@@ -33,6 +33,8 @@ const bedroomsMap: { [key: number]: string } = {
 };
 
 const CardItem = ({ apartment }: Props) => {
+  if (!apartment) return null;
+
   const {
     shortleDescription,
     address,
