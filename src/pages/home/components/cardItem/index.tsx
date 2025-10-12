@@ -7,7 +7,7 @@ import {
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
-import { IconItem } from "./components/iconItem/intex";
+import IconItem from "./components/iconItem/intex";
 
 interface Props {
   apartment: Apartment;
@@ -32,7 +32,7 @@ const bedroomsMap: { [key: number]: string } = {
   4: "4 спальни",
 };
 
-export const CardItem = ({ apartment }: Props) => {
+const CardItem = ({ apartment }: Props) => {
   const {
     shortleDescription,
     address,
@@ -75,3 +75,5 @@ export const CardItem = ({ apartment }: Props) => {
     </Card>
   );
 };
+
+export default CardItem;

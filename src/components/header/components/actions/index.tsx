@@ -1,7 +1,7 @@
-import { SelectTheme } from "@/components/selectTheme";
-import { SelectLanguage } from "@/components/selectLanguage";
+import SelectTheme from "@/components/selectTheme";
+import SelectLanguage from "@/components/selectLanguage";
 
-export const Actions = () => {
+const Actions = () => {
   return (
     <div className="flex items-center">
       <SelectTheme />
@@ -9,3 +9,5 @@ export const Actions = () => {
     </div>
   );
 };
+
+export default Actions;

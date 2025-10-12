@@ -17,7 +17,7 @@ const languages = [
 
 const defaultLanguage = "ua";
 
-export const SelectLanguage = () => {
+const SelectLanguage = () => {
   const selectId = useId();
 
   const handleChangeValue = (value: string) => {
@@ -46,3 +46,5 @@ export const SelectLanguage = () => {
     </Select>
   );
 };
+
+export default SelectLanguage;

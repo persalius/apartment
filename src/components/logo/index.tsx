@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export const Logo = () => {
+const Logo = () => {
   return (
     <div className="text-xl font-bold max-h-full overflow-hidden flex items-center">
       <Image
@@ -13,3 +13,5 @@ export const Logo = () => {
     </div>
   );
 };
+
+export default Logo;

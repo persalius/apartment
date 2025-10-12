@@ -1,7 +1,7 @@
 import { apartmentList } from "@/shared/constants/apartments";
-import { CardItem } from "./components/cardItem";
+import CardItem from "./components/cardItem";
 
-export const HomePage = () => {
+const HomePage = () => {
   return (
     <div className="py-4 flex flex-col gap-4">
       {apartmentList.map((apartment) => (
@@ -10,3 +10,5 @@ export const HomePage = () => {
     </div>
   );
 };
+
+export default HomePage;

@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { SunIcon, MoonIcon } from "lucide-react";
 
-export const SelectTheme = () => {
+const SelectTheme = () => {
   const theme = "light";
 
   const handleToggleTheme = () => {
@@ -26,3 +26,5 @@ export const SelectTheme = () => {
     </Button>
   );
 };
+
+export default SelectTheme;
