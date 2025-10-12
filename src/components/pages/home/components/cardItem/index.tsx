@@ -14,8 +14,8 @@ interface Props {
 }
 
 const periodMap = {
-  day: "per day",
-  month: "per month",
+  day: "в день",
+  month: "в месяц",
 };
 
 const currencyFormatter = new Intl.NumberFormat("uk-UA", {
