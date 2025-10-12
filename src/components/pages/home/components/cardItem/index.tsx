@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion, Variants } from "framer-motion";
+import { motion, Variants } from "motion/react";
 import { MapPin, MoveDiagonal, Bath, BedDouble } from "lucide-react";
 import { Apartment } from "@/shared/types/apartmen";
 import {
@@ -66,7 +66,6 @@ const CardItem = ({ apartment, index }: Props) => {
       initial="hidden"
       animate="visible"
       variants={cardVariants}
-      whileHover={{ scale: 1.03, boxShadow: "0 12px 40px rgba(0,0,0,0.18)" }}
     >
       <Link href={`/apartment/${apartment.id}`}>
         <Card className="p-0 overflow-auto group gap-0">
@@ -79,9 +78,13 @@ const CardItem = ({ apartment, index }: Props) => {
             />
           </CardHeader>
           <CardContent className="p-4">
-            <h3 className="mb-0.5 text-md font-semibold line-clamp-1">
+            <motion.h3
+              initial={{ filter: "blur(8px)", opacity: 0 }}
+              animate={{ filter: "blur(0px)", opacity: 1 }}
+              transition={{ duration: 0.5 }}
+            >
               {shortleDescription}
-            </h3>
+            </motion.h3>
             <IconItem icon={MapPin} text={address} className="mb-[0.75rem]" />
             <div className="flex items-center gap-2">
               <IconItem icon={BedDouble} text={bedroomsMap[bedrooms]} />
@@ -93,10 +96,22 @@ const CardItem = ({ apartment, index }: Props) => {
             </div>
           </CardContent>
           <CardFooter className="border-t border-t-slate-200 justify-between p-4!">
-            <p className="font-bold text-amber-700">
+            <motion.p
+              className="font-bold text-amber-700"
+              initial={{ filter: "blur(8px)", opacity: 0 }}
+              animate={{ filter: "blur(0px)", opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
               {formatUAH(pricing.price)}
-            </p>
-            <p>{periodMap[pricing.period]}</p>
+            </motion.p>
+            <motion.p
+              className="text-neutral-400"
+              initial={{ filter: "blur(8px)", opacity: 0 }}
+              animate={{ filter: "blur(0px)", opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
+              {periodMap[pricing.period]}
+            </motion.p>
           </CardFooter>
         </Card>
       </Link>
