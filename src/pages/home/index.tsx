@@ -1,4 +1,4 @@
-import { apartmentList } from "@/shared/constants/apartmens";
+import { apartmentList } from "@/shared/constants/apartments";
 import { CardItem } from "./components/cardItem";
 
 export const HomePage = () => {
