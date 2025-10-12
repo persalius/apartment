@@ -1,8 +1,12 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const Logo = () => {
   return (
-    <div className="text-xl font-bold max-h-full overflow-hidden flex items-center">
+    <Link
+      href="/"
+      className="text-xl font-bold max-h-full overflow-hidden flex items-center"
+    >
       <Image
         src="/images/logo.png"
         alt="Logo"
@@ -10,7 +14,7 @@ const Logo = () => {
         height={100}
         className="relative -left-7"
       />
-    </div>
+    </Link>
   );
 };
 

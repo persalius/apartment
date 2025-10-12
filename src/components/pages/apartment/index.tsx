@@ -17,9 +17,9 @@ const list: Testimonial[] = [
 
 const ApartmentPage = () => {
   return (
-    <div>
+    <>
       <AnimatedTestimonials testimonials={list} />
-    </div>
+    </>
   );
 };
 
