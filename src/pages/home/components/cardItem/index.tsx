@@ -40,7 +40,7 @@ const CardItem = ({ apartment }: Props) => {
     area,
     isCombinedBathroom,
     bedrooms,
-  } = apartment;
+  } = apartment || {};
 
   return (
     <Card className="p-0 overflow-auto group gap-0">
