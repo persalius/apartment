@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { motion, AnimatePresence } from "motion/react"
+import { motion, AnimatePresence } from "motion/react";
 import { useCallback, useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "../button";
@@ -99,20 +99,22 @@ export const AnimatedTestimonials = ({
         </div>
         <div className="flex flex-col justify-between">
           <div className="flex justify-center gap-10">
-            <Button
-              variant="ghost"
-              onClick={handlePrev}
+            <motion.button
+              whileTap={{ scale: 0.85 }}
+              transition={{ type: "spring", stiffness: 1500, damping: 20 }}
               className="group/button flex h-7 w-7 items-center justify-center rounded-full bg-gray-100 dark:bg-neutral-800"
+              onClick={handlePrev}
             >
               <ChevronLeft className="h-5 w-5 text-black transition-transform duration-300 group-hover/button:rotate-12 dark:text-neutral-400" />
-            </Button>
-            <Button
-              variant="ghost"
-              onClick={handleNext}
+            </motion.button>
+            <motion.button
+              whileTap={{ scale: 0.85 }}
+              transition={{ type: "spring", stiffness: 1500, damping: 20 }}
               className="group/button flex h-7 w-7 items-center justify-center rounded-full bg-gray-100 dark:bg-neutral-800"
+              onClick={handleNext}
             >
               <ChevronRight className="h-5 w-5 text-black transition-transform duration-300 group-hover/button:-rotate-12 dark:text-neutral-400" />
-            </Button>
+            </motion.button>
           </div>
         </div>
       </div>

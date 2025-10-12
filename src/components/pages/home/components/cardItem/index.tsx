@@ -1,8 +1,9 @@
 "use client";
 
+import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, Variants } from "motion/react";
+import { motion, useInView, Variants } from "motion/react";
 import { MapPin, MoveDiagonal, Bath, BedDouble } from "lucide-react";
 import { Apartment } from "@/shared/types/apartmen";
 import {
@@ -33,7 +34,7 @@ const bedroomsMap: { [key: number]: string } = {
 };
 
 const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 40, scale: 0.85, rotate: -3 },
+  hidden: { opacity: 0, scale: 0.85, rotate: -3 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
@@ -49,7 +50,8 @@ const cardVariants: Variants = {
 };
 
 const CardItem = ({ apartment, index }: Props) => {
-  if (!apartment) return null;
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
 
   const {
     shortleDescription,
@@ -62,9 +64,10 @@ const CardItem = ({ apartment, index }: Props) => {
 
   return (
     <motion.div
+      ref={ref}
       custom={index}
       initial="hidden"
-      animate="visible"
+      animate={isInView ? "visible" : "hidden"}
       variants={cardVariants}
     >
       <Link href={`/apartment/${apartment.id}`}>
