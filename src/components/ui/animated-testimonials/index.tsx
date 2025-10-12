@@ -5,6 +5,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useCallback, useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
+import { Button } from "../button";
 
 export type Testimonial = {
   src: string;
@@ -98,18 +99,20 @@ export const AnimatedTestimonials = ({
         </div>
         <div className="flex flex-col justify-between">
           <div className="flex justify-center gap-10">
-            <button
+            <Button
+              variant="ghost"
               onClick={handlePrev}
               className="group/button flex h-7 w-7 items-center justify-center rounded-full bg-gray-100 dark:bg-neutral-800"
             >
               <ChevronLeft className="h-5 w-5 text-black transition-transform duration-300 group-hover/button:rotate-12 dark:text-neutral-400" />
-            </button>
-            <button
+            </Button>
+            <Button
+              variant="ghost"
               onClick={handleNext}
               className="group/button flex h-7 w-7 items-center justify-center rounded-full bg-gray-100 dark:bg-neutral-800"
             >
               <ChevronRight className="h-5 w-5 text-black transition-transform duration-300 group-hover/button:-rotate-12 dark:text-neutral-400" />
-            </button>
+            </Button>
           </div>
         </div>
       </div>
