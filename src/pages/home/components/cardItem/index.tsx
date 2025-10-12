@@ -7,7 +7,7 @@ import {
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
-import IconItem from "./components/iconItem/intex";
+import IconItem from "./components/iconItem";
 
 interface Props {
   apartment: Apartment;
