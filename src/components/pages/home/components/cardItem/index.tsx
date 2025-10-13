@@ -54,7 +54,7 @@ const CardItem = ({ apartment, index }: Props) => {
   const isInView = useInView(ref, { once: true });
 
   const {
-    shortleDescription,
+    title,
     address,
     pricing,
     area,
@@ -75,13 +75,13 @@ const CardItem = ({ apartment, index }: Props) => {
           <CardHeader className="p-0 h-48 flex justify-center relative">
             <Image
               src={apartment.img[0]}
-              alt={shortleDescription}
+              alt={title}
               fill
               className="w-full object-cover"
             />
           </CardHeader>
           <CardContent className="p-4">
-            <h3>{shortleDescription}</h3>
+            <h3>{title}</h3>
             <IconItem icon={MapPin} text={address} className="mb-[0.75rem]" />
             <div className="flex items-center gap-2">
               <IconItem icon={BedDouble} text={bedroomsMap[bedrooms]} />

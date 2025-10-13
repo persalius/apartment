@@ -5,12 +5,12 @@ interface Pricing {
 
 export interface Apartment {
   id: number;
-  shortleDescription: string;
+  title: string;
   description: string;
   pricing: Pricing;
   address: string;
   img: string[];
   area: number;
   isCombinedBathroom: boolean;
-  bedrooms: number
+  bedrooms: number;
 }

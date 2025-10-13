@@ -18,7 +18,7 @@ const ApartmentPage = ({ apartmentId }: Props) => {
     <>
       <AnimatedTestimonials images={apartment.img} />
       <h1 className="text-2xl font-bold mb-4 mt-4">
-        {apartment.shortleDescription}
+        {apartment.title}
       </h1>
     </>
   );
