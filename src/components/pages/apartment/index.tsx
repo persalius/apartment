@@ -17,7 +17,7 @@ const ApartmentPage = ({ apartmentId }: Props) => {
   return (
     <>
       <AnimatedTestimonials images={apartment.img} />
-      <h1 className="text-2xl font-bold mb-4">
+      <h1 className="text-2xl font-bold mb-4 mt-4">
         {apartment.shortleDescription}
       </h1>
     </>

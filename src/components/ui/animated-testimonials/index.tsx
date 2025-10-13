@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { useCallback, useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
@@ -51,6 +50,15 @@ export const AnimatedTestimonials = ({
               {images.map((image, index) => (
                 <motion.div
                   key={image}
+                  drag="x"
+                  dragConstraints={{ left: 0, right: 0 }}
+                  onDragEnd={(event, info) => {
+                    if (info.offset.x < -50) {
+                      handleNext();
+                    } else if (info.offset.x > 50) {
+                      handlePrev();
+                    }
+                  }}
                   initial={{
                     opacity: 0,
                     scale: 0.9,
@@ -88,26 +96,6 @@ export const AnimatedTestimonials = ({
                 </motion.div>
               ))}
             </AnimatePresence>
-          </div>
-        </div>
-        <div className="flex flex-col justify-between">
-          <div className="flex justify-center gap-10">
-            <motion.button
-              whileTap={{ scale: 0.85 }}
-              transition={{ type: "spring", stiffness: 1500, damping: 20 }}
-              className="group/button flex h-7 w-7 items-center justify-center rounded-full bg-gray-100 dark:bg-neutral-800"
-              onClick={handlePrev}
-            >
-              <ChevronLeft className="h-5 w-5 text-black transition-transform duration-300 group-hover/button:rotate-12 dark:text-neutral-400" />
-            </motion.button>
-            <motion.button
-              whileTap={{ scale: 0.85 }}
-              transition={{ type: "spring", stiffness: 1500, damping: 20 }}
-              className="group/button flex h-7 w-7 items-center justify-center rounded-full bg-gray-100 dark:bg-neutral-800"
-              onClick={handleNext}
-            >
-              <ChevronRight className="h-5 w-5 text-black transition-transform duration-300 group-hover/button:-rotate-12 dark:text-neutral-400" />
-            </motion.button>
           </div>
         </div>
       </div>
