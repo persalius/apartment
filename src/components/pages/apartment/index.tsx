@@ -15,6 +15,7 @@ import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import Amenities from "./components/amenities";
 import { formatUAH } from "@/shared/utils/curency";
 import { Button } from "@/components/ui/button";
+import { PHONE_NUMBER } from "@/shared/constants/phone";
 
 interface Props {
   apartmentId: string;
@@ -99,7 +100,7 @@ const ApartmentPage = ({ apartmentId }: Props) => {
           {periodMap[apartment.pricing.period]}
         </p>
         <Button className="mt-4 w-full" asChild>
-          <Link href="tel:+380636574559">Связаться</Link>
+          <Link href={`tel:${PHONE_NUMBER}`}>Связаться</Link>
         </Button>
       </div>
     </div>

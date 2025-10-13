@@ -1,0 +1,2 @@
+export const PHONE_NUMBER = "+380636574559";
+export const FORMATTED_PHONE_NUMBER = "+38 (063) 657-45-59";
