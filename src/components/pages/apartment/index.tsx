@@ -44,13 +44,15 @@ const ApartmentPage = ({ apartmentId }: Props) => {
   return (
     <div className="py-4">
       <Breadcrumb>
-        <BreadcrumbList>
+        <BreadcrumbList className="overflow-hidden flex-nowrap">
           <BreadcrumbItem>
             <BreadcrumbLink href="/">Главная</BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbPage>{apartment.address}</BreadcrumbPage>
+            <BreadcrumbPage className="max-w-[220px] overflow-hidden text-ellipsis whitespace-nowrap">
+              {apartment.address}
+            </BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
@@ -97,7 +99,7 @@ const ApartmentPage = ({ apartmentId }: Props) => {
           {periodMap[apartment.pricing.period]}
         </p>
         <Button className="mt-4 w-full" asChild>
-          <Link href="tel:+380971830934">Связаться</Link>
+          <Link href="tel:+380636574559">Связаться</Link>
         </Button>
       </div>
     </div>
