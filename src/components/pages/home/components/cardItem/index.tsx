@@ -13,6 +13,7 @@ import {
   CardHeader,
 } from "@/components/ui/card";
 import IconItem from "../../../../iconItem";
+import { formatUAH } from "@/shared/utils/curency";
 
 interface Props {
   apartment: Apartment;
@@ -23,8 +24,6 @@ const periodMap = {
   day: "в день",
   month: "в месяц",
 };
-
-const formatUAH = (value: number) => `${value.toLocaleString("uk-UA")} грн`;
 
 const bedroomsMap: { [key: number]: string } = {
   1: "1 спальня",
@@ -53,14 +52,8 @@ const CardItem = ({ apartment, index }: Props) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
-  const {
-    title,
-    address,
-    pricing,
-    area,
-    isCombinedBathroom,
-    bedrooms,
-  } = apartment;
+  const { title, address, pricing, area, isCombinedBathroom, bedrooms } =
+    apartment;
 
   return (
     <motion.div

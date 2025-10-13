@@ -16,6 +16,12 @@ export const apartmentList: Apartment[] = [
     area: 55,
     isCombinedBathroom: true,
     bedrooms: 2,
+    amenities: {
+      wifi: true,
+      kitchen: true,
+      airConditioning: true,
+      hasWashingMachine: true,
+    },
   },
   {
     id: 2,
@@ -32,6 +38,12 @@ export const apartmentList: Apartment[] = [
     area: 40,
     isCombinedBathroom: false,
     bedrooms: 1,
+    amenities: {
+      wifi: false,
+      kitchen: true,
+      airConditioning: false,
+      hasWashingMachine: true,
+    },
   },
   {
     id: 3,
@@ -48,6 +60,12 @@ export const apartmentList: Apartment[] = [
     area: 68,
     isCombinedBathroom: true,
     bedrooms: 3,
+    amenities: {
+      wifi: false,
+      kitchen: true,
+      airConditioning: false,
+      hasWashingMachine: false,
+    },
   },
   {
     id: 4,
@@ -64,6 +82,12 @@ export const apartmentList: Apartment[] = [
     area: 68,
     isCombinedBathroom: true,
     bedrooms: 3,
+    amenities: {
+      wifi: true,
+      kitchen: true,
+      airConditioning: true,
+      hasWashingMachine: true,
+    },
   },
   {
     id: 5,
@@ -80,5 +104,11 @@ export const apartmentList: Apartment[] = [
     area: 68,
     isCombinedBathroom: true,
     bedrooms: 3,
+    amenities: {
+      wifi: true,
+      kitchen: true,
+      airConditioning: true,
+      hasWashingMachine: true,
+    },
   },
 ];

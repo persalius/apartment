@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { MapPin, MoveDiagonal, Bath, BedDouble } from "lucide-react";
 import IconItem from "@/components/iconItem";
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
@@ -11,6 +12,9 @@ import {
 } from "@/components/ui/breadcrumb";
 import { apartmentList } from "@/shared/constants/apartments";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
+import Amenities from "./components/amenities";
+import { formatUAH } from "@/shared/utils/curency";
+import { Button } from "@/components/ui/button";
 
 interface Props {
   apartmentId: string;
@@ -21,6 +25,11 @@ const bedroomsMap: { [key: number]: string } = {
   2: "2 спальни",
   3: "3 спальни",
   4: "4 спальни",
+};
+
+const periodMap = {
+  day: "в день",
+  month: "в месяц",
 };
 
 const ApartmentPage = ({ apartmentId }: Props) => {
@@ -71,12 +80,26 @@ const ApartmentPage = ({ apartmentId }: Props) => {
         </CardContent>
       </Card>
 
-      <Card className="my-4">
-        <CardTitle className="mx-4">Удобства</CardTitle>
-        <CardContent>
-          <p className="text-neutral-400">{apartment.description}</p>
-        </CardContent>
-      </Card>
+      {apartment.amenities && (
+        <Card className="my-4">
+          <CardTitle className="mx-4">Удобства</CardTitle>
+          <CardContent>
+            <Amenities amenities={apartment.amenities} />
+          </CardContent>
+        </Card>
+      )}
+
+      <div className="mt-8">
+        <p className="font-bold text-cyan-700 text-4xl">
+          {formatUAH(apartment.pricing.price)}
+        </p>
+        <p className="text-neutral-400">
+          {periodMap[apartment.pricing.period]}
+        </p>
+        <Button className="mt-4 w-full" asChild>
+          <Link href="tel:+380971830934">Связаться</Link>
+        </Button>
+      </div>
     </div>
   );
 };

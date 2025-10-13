@@ -3,11 +3,11 @@ interface Pricing {
   period: "day" | "month";
 }
 
-interface Amenities {
+export interface Amenities {
   wifi: boolean;
-  parking: boolean;
   kitchen: boolean;
   airConditioning: boolean;
+  hasWashingMachine: boolean;
 }
 
 export interface Apartment {
