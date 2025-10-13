@@ -3,6 +3,13 @@ interface Pricing {
   period: "day" | "month";
 }
 
+interface Amenities {
+  wifi: boolean;
+  parking: boolean;
+  kitchen: boolean;
+  airConditioning: boolean;
+}
+
 export interface Apartment {
   id: number;
   title: string;
@@ -13,4 +20,5 @@ export interface Apartment {
   area: number;
   isCombinedBathroom: boolean;
   bedrooms: number;
+  amenities?: Amenities;
 }
