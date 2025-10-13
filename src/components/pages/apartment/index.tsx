@@ -1,24 +1,25 @@
-import {
-  AnimatedTestimonials,
-  Testimonial,
-} from "@/components/ui/animated-testimonials";
+import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
+import { apartmentList } from "@/shared/constants/apartments";
 
-const list: Testimonial[] = [
-  {
-    src: "/images/apartment1/1.jpg",
-  },
-  {
-    src: "/images/apartment1/2.jpg",
-  },
-  {
-    src: "/images/apartment1/3.jpg",
-  },
-];
+interface Props {
+  apartmentId: string;
+}
 
-const ApartmentPage = () => {
+const ApartmentPage = ({ apartmentId }: Props) => {
+  const apartment = apartmentList.find(
+    (item) => item.id === Number(apartmentId)
+  );
+
+  if (!apartment) {
+    return <div>Apartment not found</div>;
+  }
+
   return (
     <>
-      <AnimatedTestimonials testimonials={list} />
+      <AnimatedTestimonials images={apartment.img} />
+      <h1 className="text-2xl font-bold mb-4">
+        {apartment.shortleDescription}
+      </h1>
     </>
   );
 };

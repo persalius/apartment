@@ -49,4 +49,36 @@ export const apartmentList: Apartment[] = [
     isCombinedBathroom: true,
     bedrooms: 3,
   },
+  {
+    id: 4,
+    shortleDescription: "Современная квартира с одной спальней",
+    description:
+      "Уютная квартира с одной спальней, расположенная в тихом районе. Идеально подходит для одиночек или пар. В квартире есть все необходимое для комфортного проживания.",
+    pricing: { price: 1000, period: "day" },
+    address: "Центральный район, Верхнеднепровск",
+    img: [
+      "/images/apartment1/1.jpg",
+      "/images/apartment1/2.jpg",
+      "/images/apartment1/3.jpg",
+    ],
+    area: 68,
+    isCombinedBathroom: true,
+    bedrooms: 3,
+  },
+  {
+    id: 5,
+    shortleDescription: "Современная квартира с одной спальней",
+    description:
+      "Уютная квартира с одной спальней, расположенная в тихом районе. Идеально подходит для одиночек или пар. В квартире есть все необходимое для комфортного проживания.",
+    pricing: { price: 1000, period: "day" },
+    address: "Центральный район, Верхнеднепровск",
+    img: [
+      "/images/apartment1/1.jpg",
+      "/images/apartment1/2.jpg",
+      "/images/apartment1/3.jpg",
+    ],
+    area: 68,
+    isCombinedBathroom: true,
+    bedrooms: 3,
+  },
 ];

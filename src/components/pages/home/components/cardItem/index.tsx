@@ -81,13 +81,7 @@ const CardItem = ({ apartment, index }: Props) => {
             />
           </CardHeader>
           <CardContent className="p-4">
-            <motion.h3
-              initial={{ filter: "blur(8px)", opacity: 0 }}
-              animate={{ filter: "blur(0px)", opacity: 1 }}
-              transition={{ duration: 0.5 }}
-            >
-              {shortleDescription}
-            </motion.h3>
+            <h3>{shortleDescription}</h3>
             <IconItem icon={MapPin} text={address} className="mb-[0.75rem]" />
             <div className="flex items-center gap-2">
               <IconItem icon={BedDouble} text={bedroomsMap[bedrooms]} />
@@ -99,22 +93,10 @@ const CardItem = ({ apartment, index }: Props) => {
             </div>
           </CardContent>
           <CardFooter className="border-t border-t-slate-200 justify-between p-4!">
-            <motion.p
-              className="font-bold text-amber-700"
-              initial={{ filter: "blur(8px)", opacity: 0 }}
-              animate={{ filter: "blur(0px)", opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-            >
+            <p className="font-bold text-amber-700">
               {formatUAH(pricing.price)}
-            </motion.p>
-            <motion.p
-              className="text-neutral-400"
-              initial={{ filter: "blur(8px)", opacity: 0 }}
-              animate={{ filter: "blur(0px)", opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-            >
-              {periodMap[pricing.period]}
-            </motion.p>
+            </p>
+            <p className="text-neutral-400">{periodMap[pricing.period]}</p>
           </CardFooter>
         </Card>
       </Link>

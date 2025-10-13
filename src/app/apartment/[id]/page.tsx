@@ -1,5 +1,10 @@
 import ApartmentPage from "@/components/pages/apartment";
 
-export default function Apartment() {
-  return <ApartmentPage />;
+export default async function Apartment({
+  params,
+}: {
+  params: { id: string };
+}) {
+  const { id } = await params;
+  return <ApartmentPage apartmentId={id} />;
 }
