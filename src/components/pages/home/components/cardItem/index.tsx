@@ -33,17 +33,14 @@ const bedroomsMap: { [key: number]: string } = {
 };
 
 const cardVariants: Variants = {
-  hidden: { opacity: 0, scale: 0.85, rotate: -3 },
+  hidden: { opacity: 0, scale: 0.85 },
   visible: (i: number) => ({
     opacity: 1,
-    y: 0,
     scale: 1,
-    rotate: 0,
     transition: {
       type: "spring",
       stiffness: 120,
       damping: 14,
-      delay: i * 0.12,
     },
   }),
 };
