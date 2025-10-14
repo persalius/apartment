@@ -24,7 +24,7 @@ const MapActions = ({ address }: Props) => {
     <div className="flex flex-col gap-4">
       <Button
         onClick={handleOpenMap}
-        className="w-full flex items-center gap-2 px-3 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition"
+        className="w-full flex items-center gap-2 px-3 py-2 bg-amber-600 hover:bg-amber-700 text-white shadow-sm hover:shadow-md transition"
       >
         <MapPin className="w-4 h-4" />
         Открыть в Google Maps
@@ -32,7 +32,7 @@ const MapActions = ({ address }: Props) => {
 
       <Button
         onClick={handleOpenRoute}
-        className="w-full flex items-center gap-2 px-3 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition"
+        className="w-full flex items-center gap-2 px-3 py-2 bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm hover:shadow-md transition"
       >
         <MapPin className="w-4 h-4" />
         Проложить маршрут
