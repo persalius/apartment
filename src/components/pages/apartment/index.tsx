@@ -16,6 +16,7 @@ import Amenities from "./components/amenities";
 import { formatUAH } from "@/shared/utils/curency";
 import { Button } from "@/components/ui/button";
 import { PHONE_NUMBER } from "@/shared/constants/phone";
+import ButtonOpenMap from "@/components/buttonOpenMap";
 
 interface Props {
   apartmentId: string;
@@ -91,6 +92,8 @@ const ApartmentPage = ({ apartmentId }: Props) => {
           </CardContent>
         </Card>
       )}
+
+      <ButtonOpenMap address={apartment.address} />
 
       <div className="mt-8">
         <p className="font-bold text-cyan-700 text-4xl">
