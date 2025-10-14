@@ -16,7 +16,7 @@ import Amenities from "./components/amenities";
 import { formatUAH } from "@/shared/utils/curency";
 import { Button } from "@/components/ui/button";
 import { PHONE_NUMBER } from "@/shared/constants/phone";
-import ButtonOpenMap from "@/components/buttonOpenMap";
+import MapActions from "@/components/mapActions";
 
 interface Props {
   apartmentId: string;
@@ -93,7 +93,7 @@ const ApartmentPage = ({ apartmentId }: Props) => {
         </Card>
       )}
 
-      <ButtonOpenMap address={apartment.address} />
+      <MapActions address={apartment.address} />
 
       <div className="mt-8">
         <p className="font-bold text-cyan-700 text-4xl">
