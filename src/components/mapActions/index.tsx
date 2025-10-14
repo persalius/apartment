@@ -2,21 +2,22 @@
 
 import { MapPin } from "lucide-react";
 import { Button } from "../ui/button";
+import { Coordinates } from "@/shared/types/apartmen";
 
 interface Props {
-  address: string;
+  coordinates: Coordinates;
 }
 
-const MapActions = ({ address }: Props) => {
+const MapActions = ({ coordinates }: Props) => {
+  const { lat: latitude, lng: longitude } = coordinates;
+
   const handleOpenMap = () => {
-    const encodedAddress = encodeURIComponent(address);
-    const googleMapsUrl = `https://www.google.com/maps?q=${encodedAddress}`;
+    const googleMapsUrl = `https://www.google.com/maps?q=${latitude},${longitude}`;
     window.open(googleMapsUrl, "_blank");
   };
 
   const handleOpenRoute = () => {
-    const encodedAddress = encodeURIComponent(address);
-    const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodedAddress}`;
+    const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${latitude},${longitude}`;
     window.open(googleMapsUrl, "_blank");
   };
 

@@ -3,6 +3,11 @@ interface Pricing {
   period: "day" | "month";
 }
 
+export interface Coordinates {
+  lat: number;
+  lng: number;
+}
+
 export interface Amenities {
   wifi: boolean;
   kitchen: boolean;
@@ -16,6 +21,7 @@ export interface Apartment {
   description: string;
   pricing: Pricing;
   address: string;
+  coordinates: Coordinates;
   img: string[];
   area: number;
   isCombinedBathroom: boolean;

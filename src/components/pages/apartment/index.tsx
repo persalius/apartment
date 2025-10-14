@@ -94,8 +94,8 @@ const ApartmentPage = ({ apartmentId }: Props) => {
         </Card>
       )}
 
-      <MapActions address={apartment.address} />
-      <GoogleMap />
+      <MapActions coordinates={apartment.coordinates} />
+      <GoogleMap coordinates={apartment.coordinates} />
 
       <div className="mt-8">
         <p className="font-bold text-cyan-700 text-4xl">
