@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ThemeProvider } from "next-themes";
 import { Geist, Geist_Mono } from "next/font/google";
 import Header from "@/components/header";
 import "./globals.css";
@@ -25,15 +26,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="ua" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Header />
-        <main className="max-w-7xl mx-auto px-4 overflow-x-hidden w-screen">
-          {children}
-        </main>
-        <Footer />
+        <ThemeProvider
+          enableSystem={false}
+          attribute="class"
+          defaultTheme="light"
+        >
+          <Header />
+          <main className="max-w-7xl mx-auto px-4 overflow-x-hidden w-screen">
+            {children}
+          </main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );
