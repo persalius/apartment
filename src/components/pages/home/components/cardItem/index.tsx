@@ -4,6 +4,7 @@ import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useInView, Variants } from "motion/react";
+import { useTranslations } from "next-intl";
 import { MapPin, MoveDiagonal, Bath, BedDouble } from "lucide-react";
 import { Apartment } from "@/shared/types/apartmen";
 import {
@@ -46,6 +47,7 @@ const cardVariants: Variants = {
 };
 
 const CardItem = ({ apartment, index }: Props) => {
+  // const t = useTranslations("HomePage");
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
@@ -60,6 +62,7 @@ const CardItem = ({ apartment, index }: Props) => {
       animate={isInView ? "visible" : "hidden"}
       variants={cardVariants}
     >
+      {/* {t("title")} */}
       <Link href={`/apartment/${apartment.id}`}>
         <Card className="p-0 overflow-auto group gap-0">
           <CardHeader className="p-0 h-48 flex justify-center relative">

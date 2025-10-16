@@ -1,6 +1,7 @@
 "use client";
 
 import { useId } from "react";
+import { useLocale } from "next-intl";
 import {
   Select,
   SelectContent,
@@ -15,17 +16,17 @@ const languages = [
   { value: "ru", label: "RU" },
 ];
 
-const defaultLanguage = "ua";
-
 const SelectLanguage = () => {
+  const locale = useLocale();
   const selectId = useId();
 
   const handleChangeValue = (value: string) => {
-    console.log("Selected language:", value);
+    document.cookie = `locale=${value}; path=/; max-age=31536000`;
+    window.location.reload();
   };
 
   return (
-    <Select defaultValue={defaultLanguage} onValueChange={handleChangeValue}>
+    <Select value={locale} onValueChange={handleChangeValue}>
       <SelectTrigger
         id={`language-${selectId}`}
         className="[&>svg]:text-muted-foreground/80 hover:bg-accent hover:text-accent-foreground h-8 border-none px-2 shadow-none [&>svg]:shrink-0"
