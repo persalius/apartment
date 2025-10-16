@@ -7,7 +7,7 @@ import Header from "@/components/header";
 import "./globals.css";
 import Footer from "@/components/footer";
 
-const OG_VERSION = "2";
+const OG_VERSION = "3";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

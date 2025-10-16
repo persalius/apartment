@@ -10,9 +10,9 @@ const Logo = () => {
       <Image
         src="/images/logo.png"
         alt="Logo"
-        width={150}
-        height={100}
-        className="relative -left-7"
+        width={100}
+        height={50}
+        className="relative"
       />
     </Link>
   );
