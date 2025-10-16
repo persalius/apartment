@@ -40,6 +40,25 @@ export async function generateMetadata(
       description: t("description"),
       images: "/images/logo.png",
     },
+    twitter: {
+      card: "summary_large_image",
+      title: t("title"),
+      description: t("description"),
+      images: "/images/logo.png",
+    },
+    robots: {
+      index: true,
+      follow: true,
+      nocache: false,
+      googleBot: {
+        index: true,
+        follow: true,
+        noimageindex: false,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
+    },
     keywords: [
       "квартира",
       "оренда",
