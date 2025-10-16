@@ -7,8 +7,6 @@ import Header from "@/components/header";
 import "./globals.css";
 import Footer from "@/components/footer";
 
-const OG_VERSION = "3";
-
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -31,13 +29,13 @@ export async function generateMetadata() {
     openGraph: {
       title: t("title"),
       description: t("description"),
-      images: `/images/logo.png?v=${OG_VERSION}`,
+      images: "/images/logo.png",
     },
     twitter: {
       card: "summary_large_image",
       title: t("title"),
       description: t("description"),
-      images: `/images/logo.png?v=${OG_VERSION}`,
+      images: "/images/logo.png",
     },
     robots: {
       index: true,

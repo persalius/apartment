@@ -5,15 +5,9 @@ const Logo = () => {
   return (
     <Link
       href="/"
-      className="text-xl font-bold max-h-full overflow-hidden flex items-center"
+      className="text-xl font-bold max-h-full overflow-hidden flex items-center h-12 w-28 relative"
     >
-      <Image
-        src="/images/logo.png"
-        alt="Logo"
-        width={100}
-        height={50}
-        className="relative"
-      />
+      <Image src="/images/logo.png" alt="Logo" fill className="relative" />
     </Link>
   );
 };
