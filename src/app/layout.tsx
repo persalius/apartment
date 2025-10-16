@@ -36,6 +36,8 @@ export async function generateMetadata(
     title: t("title"),
     description: t("description"),
     openGraph: {
+      title: t("title"),
+      description: t("description"),
       images: "/images/logo.png",
     },
     keywords: [
