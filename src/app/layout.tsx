@@ -1,4 +1,3 @@
-import type { Metadata, ResolvingMetadata } from "next";
 import { cookies } from "next/headers";
 import { ThemeProvider } from "next-themes";
 import { getTranslations } from "next-intl/server";
@@ -7,6 +6,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Header from "@/components/header";
 import "./globals.css";
 import Footer from "@/components/footer";
+
+const OG_VERSION = "2";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,15 +19,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-type Props = {
-  params: Promise<{ slug: string }>;
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
-};
-
-export async function generateMetadata(
-  { params, searchParams }: Props,
-  parent: ResolvingMetadata
-): Promise<Metadata> {
+export async function generateMetadata() {
   const store = await cookies();
   const locale = store.get("locale")?.value || "ua";
 
@@ -38,13 +31,13 @@ export async function generateMetadata(
     openGraph: {
       title: t("title"),
       description: t("description"),
-      images: "/images/logo.png",
+      images: `/images/logo.png?v=${OG_VERSION}`,
     },
     twitter: {
       card: "summary_large_image",
       title: t("title"),
       description: t("description"),
-      images: "/images/logo.png",
+      images: `/images/logo.png?v=${OG_VERSION}`,
     },
     robots: {
       index: true,
