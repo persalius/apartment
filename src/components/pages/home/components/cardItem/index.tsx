@@ -21,21 +21,9 @@ interface Props {
   index: number;
 }
 
-const periodMap = {
-  day: "в день",
-  month: "в месяц",
-};
-
-const bedroomsMap: { [key: number]: string } = {
-  1: "1 спальня",
-  2: "2 спальни",
-  3: "3 спальни",
-  4: "4 спальни",
-};
-
 const cardVariants: Variants = {
   hidden: { opacity: 0, scale: 0.85 },
-  visible: (i: number) => ({
+  visible: () => ({
     opacity: 1,
     scale: 1,
     transition: {
@@ -47,12 +35,22 @@ const cardVariants: Variants = {
 };
 
 const CardItem = ({ apartment, index }: Props) => {
-  // const t = useTranslations("HomePage");
+  const { title, address, pricing, area, isCombinedBathroom, bedrooms } =
+    apartment;
+
+  const t = useTranslations("apartmentInfo");
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
-  const { title, address, pricing, area, isCombinedBathroom, bedrooms } =
-    apartment;
+  const periodMap = {
+    day: t("perDay"),
+    month: t("perMonth"),
+  };
+
+  const bedroomsText = t(`bedrooms.${bedrooms}`);
+  const bathroomText = t(
+    `bathroom.${isCombinedBathroom ? "combined" : "separate"}`
+  );
 
   return (
     <motion.div
@@ -62,7 +60,6 @@ const CardItem = ({ apartment, index }: Props) => {
       animate={isInView ? "visible" : "hidden"}
       variants={cardVariants}
     >
-      {/* {t("title")} */}
       <Link href={`/apartment/${apartment.id}`}>
         <Card className="p-0 overflow-auto group gap-0">
           <CardHeader className="p-0 h-48 flex justify-center relative">
@@ -77,11 +74,8 @@ const CardItem = ({ apartment, index }: Props) => {
             <h3>{title}</h3>
             <IconItem icon={MapPin} text={address} className="mb-[0.75rem]" />
             <div className="flex items-center gap-2">
-              <IconItem icon={BedDouble} text={bedroomsMap[bedrooms]} />
-              <IconItem
-                icon={Bath}
-                text={isCombinedBathroom ? "Совмещенный" : "Раздельный"}
-              />
+              <IconItem icon={BedDouble} text={bedroomsText} />
+              <IconItem icon={Bath} text={bathroomText} />
               <IconItem icon={MoveDiagonal} text={`${area} м²`} />
             </div>
           </CardContent>

@@ -18,26 +18,28 @@ import { Button } from "@/components/ui/button";
 import { PHONE_NUMBER } from "@/shared/constants/phone";
 import MapActions from "@/components/mapActions";
 import GoogleMap from "@/components/googleMap";
+import { useTranslations } from "next-intl";
 
 interface Props {
   apartmentId: string;
 }
 
-const bedroomsMap: { [key: number]: string } = {
-  1: "1 спальня",
-  2: "2 спальни",
-  3: "3 спальни",
-  4: "4 спальни",
-};
-
-const periodMap = {
-  day: "в день",
-  month: "в месяц",
-};
-
 const ApartmentPage = ({ apartmentId }: Props) => {
+  const tCommon = useTranslations("common");
+  const t = useTranslations("apartmentInfo");
+
   const apartment = apartmentList.find(
     (item) => item.id === Number(apartmentId)
+  );
+
+  const periodMap = {
+    day: t("perDay"),
+    month: t("perMonth"),
+  };
+
+  const bedroomsText = t(`bedrooms.${apartment?.bedrooms}`);
+  const bathroomText = t(
+    `bathroom.${apartment?.isCombinedBathroom ? "combined" : "separate"}`
   );
 
   if (!apartment) {
@@ -49,7 +51,7 @@ const ApartmentPage = ({ apartmentId }: Props) => {
       <Breadcrumb>
         <BreadcrumbList className="overflow-hidden flex-nowrap">
           <BreadcrumbItem>
-            <BreadcrumbLink href="/">Главная</BreadcrumbLink>
+            <BreadcrumbLink href="/">{tCommon("main")}</BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
@@ -70,16 +72,13 @@ const ApartmentPage = ({ apartmentId }: Props) => {
         className="mb-[0.75rem]"
       />
       <div className="flex items-center gap-2">
-        <IconItem icon={BedDouble} text={bedroomsMap[apartment.bedrooms]} />
-        <IconItem
-          icon={Bath}
-          text={apartment.isCombinedBathroom ? "Совмещенный" : "Раздельный"}
-        />
+        <IconItem icon={BedDouble} text={bedroomsText} />
+        <IconItem icon={Bath} text={bathroomText} />
         <IconItem icon={MoveDiagonal} text={`${apartment.area} м²`} />
       </div>
 
       <Card className="my-4">
-        <CardTitle className="mx-4">Описание</CardTitle>
+        <CardTitle className="mx-4">{tCommon("description")}</CardTitle>
         <CardContent>
           <p className="text-neutral-400">{apartment.description}</p>
         </CardContent>
@@ -87,7 +86,7 @@ const ApartmentPage = ({ apartmentId }: Props) => {
 
       {apartment.amenities && (
         <Card className="my-4">
-          <CardTitle className="mx-4">Удобства</CardTitle>
+          <CardTitle className="mx-4">{tCommon("amenities")}</CardTitle>
           <CardContent>
             <Amenities amenities={apartment.amenities} />
           </CardContent>
@@ -105,7 +104,7 @@ const ApartmentPage = ({ apartmentId }: Props) => {
           {periodMap[apartment.pricing.period]}
         </p>
         <Button className="mt-4 w-full" asChild>
-          <Link href={`tel:${PHONE_NUMBER}`}>Связаться</Link>
+          <Link href={`tel:${PHONE_NUMBER}`}>{tCommon("toCall")}</Link>
         </Button>
       </div>
     </div>

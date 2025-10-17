@@ -1,33 +1,12 @@
-import { JSX, useMemo } from "react";
 import type { Amenities as AmenitiesType } from "@/shared/types/apartmen";
-import { CookingPot, SunSnow, WashingMachineIcon, Wifi } from "lucide-react";
+import { useAmenities } from "./hooks/useAmenities";
 
 interface Props {
   amenities?: AmenitiesType;
 }
 
 const Amenities = ({ amenities }: Props) => {
-  const list: { icon: JSX.Element; text: string; value: boolean }[] = useMemo(
-    () => [
-      { icon: <Wifi />, text: "Wi-Fi", value: amenities?.wifi || false },
-      {
-        icon: <CookingPot />,
-        text: "Кухня",
-        value: amenities?.kitchen || false,
-      },
-      {
-        icon: <SunSnow />,
-        text: "Кондиционер",
-        value: amenities?.airConditioning || false,
-      },
-      {
-        icon: <WashingMachineIcon />,
-        text: "Стиральная машина",
-        value: amenities?.hasWashingMachine || false,
-      },
-    ],
-    [amenities]
-  );
+  const list = useAmenities({ amenities });
 
   return (
     <ul className="grid grid-cols-2 gap-2">

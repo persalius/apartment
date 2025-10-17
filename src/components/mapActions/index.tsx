@@ -1,8 +1,9 @@
 "use client";
 
-import { MapPin } from "lucide-react";
+import { MapPin, Route } from "lucide-react";
 import { Button } from "../ui/button";
 import { Coordinates } from "@/shared/types/apartmen";
+import { useTranslations } from "next-intl";
 
 interface Props {
   coordinates: Coordinates;
@@ -10,6 +11,8 @@ interface Props {
 
 const MapActions = ({ coordinates }: Props) => {
   const { lat: latitude, lng: longitude } = coordinates;
+
+  const t = useTranslations("common");
 
   const handleOpenMap = () => {
     const googleMapsUrl = `https://www.google.com/maps?q=${latitude},${longitude}`;
@@ -28,15 +31,15 @@ const MapActions = ({ coordinates }: Props) => {
         className="w-full flex items-center gap-2 px-3 py-2 bg-amber-600 hover:bg-amber-700 text-white shadow-sm hover:shadow-md transition"
       >
         <MapPin className="w-4 h-4" />
-        Открыть в Google Maps
+        {t("openMap")}
       </Button>
 
       <Button
         onClick={handleOpenRoute}
         className="w-full flex items-center gap-2 px-3 py-2 bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm hover:shadow-md transition"
       >
-        <MapPin className="w-4 h-4" />
-        Проложить маршрут
+        <Route className="w-4 h-4" />
+        {t("openRoute")}
       </Button>
     </div>
   );
